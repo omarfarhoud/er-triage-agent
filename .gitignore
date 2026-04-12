@@ -1,0 +1,19 @@
+# Environments
+.venv/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Secrets
+.env
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# OS and Editor Junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
