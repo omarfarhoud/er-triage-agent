@@ -69,7 +69,7 @@ Simple. No multi-agent orchestration. Just one agent, clear tools, one job.
 We use `uv` for dependency management.
 
 ### 1. Clone the Repository
-`git clone <YOUR_GITHUB_REPO_URL_HERE>`
+`git clone <https://github.com/omarfarhoud/er-triage-agent>`
 `cd er_triage_agent`
 
 ### 2. Install uv
