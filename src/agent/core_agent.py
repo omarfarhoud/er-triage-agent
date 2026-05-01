@@ -1,3 +1,10 @@
+
+
+# Core Agent Module
+# This file implements the main agent loop responsible for:
+# - reasoning using LLM
+# - selecting tools dynamically
+# - producing final triage decisions
 from dataclasses import asdict, is_dataclass
 import json
 
@@ -70,6 +77,7 @@ Valid final response example:
 
 
 def call_llm(messages):
+    # LLM Configuration
     response = completion(
         model=MODEL,
         messages=messages,
@@ -209,6 +217,9 @@ def _fallback_pipeline(patient_data: dict, trace: list[dict]) -> dict:
 
 
 def run_agent(patient_input: dict):
+    # Main entry point for the ER Triage Agent
+    # Takes patient input (symptoms + vitals)
+    # Runs reasoning loop and returns final decision
     patient_data = _validate_patient_input(patient_input)
 
     messages = [
@@ -230,6 +241,8 @@ def run_agent(patient_input: dict):
 
     try:
         for _ in range(6):
+            # Agent reasoning step:
+            # LLM decides next action (tool call or final answer)
             agent_step = _get_agent_step(messages)
 
             if agent_step.get("action") == FINAL_ANSWER:
